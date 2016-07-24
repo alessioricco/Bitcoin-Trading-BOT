@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CF05963-B216-4910-B96E-67CB294272CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataProvider</RootNamespace>
+    <AssemblyName>DataProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="linq2db">
+      <HintPath>..\packages\linq2db.1.0.1.1\lib\net40\linq2db.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Json">
+      <HintPath>..\packages\JsonValue.0.6.0\lib\40\Microsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Server.Common">
+      <HintPath>..\packages\JsonValue.0.6.0\lib\40\Microsoft.Server.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Models\TradingData\Trade.cs" />
+    <Compile Include="Models\TradingData\TradingDataDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\ADataSource.cs" />
+    <Compile Include="Sources\ARestDataSource.cs" />
+    <Compile Include="Sources\CBitcoinCharts.cs" />
+    <Compile Include="Sources\CBitcoinChartsMtgoxBTCUSD.cs" />
+    <Compile Include="Test\DBConnection.cs" />
+    <Compile Include="Test\Sources.cs" />
+    <Compile Include="Utils\UnixTime.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LinqToDB.Templates\DataAnnotations.ttinclude" />
+    <None Include="LinqToDB.Templates\DataModel.ttinclude" />
+    <None Include="LinqToDB.Templates\EditableObject.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Access.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.DB2.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Firebird.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Informix.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.MySql.Tools.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.MySql.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Oracle.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.PostgreSQL.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.SqlCe.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.SQLite.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.SqlServer.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Sybase.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.Tools.ttinclude" />
+    <None Include="LinqToDB.Templates\LinqToDB.ttinclude" />
+    <None Include="LinqToDB.Templates\NotifyPropertyChanged.ttinclude" />
+    <None Include="LinqToDB.Templates\PluralizationService.ttinclude" />
+    <None Include="LinqToDB.Templates\T4Model.ttinclude" />
+    <None Include="LinqToDB.Templates\Validation.ttinclude" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LinqToDB.Templates\CopyMe.MySql.tt.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
